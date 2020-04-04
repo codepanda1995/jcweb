@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 通过url进行传递参数
+        axios.get("http://localhost:3000/data?id=123").then(
+            ret=>{
+                console.log(ret.data);
+            }
+        )
+        
+        axios.get("http://localhost:3000/data/123").then(
+            ret => {
+                console.log(ret.data);
+            }
+        )
+        
+        // 通过params选项传递参数
+        axios.get("http://localhost:3000/data",{
+             params:{
+                 id:123
+             }
+        }).then(
+            ret => {
+                console.log(ret.data);
+            }
+        )
+
+        // 通过post请求
+        axios.post("http://localhost:3000/data".{
+            uname:"lisi",
+            pwd:123
+        }).then(ret=>{
+            console.log(ret.data);
+            
+        });
+
+        var params = new URLSearchParams();
+        params.append("uname","lidi");
+        params.append("pwd","123");
+        axios.post("http://localhost:3000/data",params).then(
+            ret=>{
+                console.log(ret.data);
+                
+            }
+        )
+
+    </script>
+</body>
+</html>

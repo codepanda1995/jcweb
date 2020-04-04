@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <audio src="media/snow.mp3" controls></audio>
+    <audio>
+        <source src="media/snow.mp3" type="audio/mpeg">
+        <source src="media/snow.ogg" type="audio/ogg">
+    </audio>
+    <video autoplay controls loop muted>
+        <source src="vedio/vedio.mp4" type="video/mp4">
+        <source src="vedio/vedio.ogg" type="video/ogg">
+    </video>
+    <input type="text" required placeholder="请输入账号" autofocus name="username" autocomplete>
+    <input type="file" multiple>
+-->
+    <!-- disabled 是禁用我们的技能 -->
+    <!-- <button>按钮</button>
+    <button>按钮</button>
+    <button disabled>按钮</button>
+    <button disabled>按钮</button>
+    <style>
+        /* 属性选择器使用方法 */
+        button[disabled]{
+            cursor: default;
+        }
+        button{
+            cursor: pointer;
+        }
+        p::after{
+            content:"\ea50";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-family: "icomoon";
+        }
+        div{
+            
+        }
+    </style> -->
+    <div>
+
+    </div>
+    <style>
+        div{
+            width: 200px;
+            height: 25px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            margin-left: 20px;
+            position: relative;
+        }
+        div::after{
+            content: '';
+            position: absolute;
+            top: 7px;
+            right: 9px;
+            width: 10px;
+            height: 10px;
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+            transform: rotate(45deg);
+            transition: all 0.2s;
+        }
+        div:hover::after{
+            transform: rotate(225deg);
+            border-color: red;
+        }
+        div{
+            animation-iteration-count:重复次数 ;
+            
+        }
+    </style>
+</body>
+</html>

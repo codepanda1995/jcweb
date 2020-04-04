@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 首先要定一个优先级队列 传入元素和优先级 element,prioity
+        function queuePrioity(){
+            // 声明一个数组，用来存储数据
+            this.queueList = [];
+            // 向队列中添加数据
+            queuePrioity.prototype.inputQueue = function (element) {
+                this.queueList.push(element);
+            }
+            // 从队列前端删除数据第一个
+            queuePrioity.prototype.deleteQueue = function () {
+                // shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。
+                return this.queueList.shift()
+            }
+
+            // 从队列中查看前端元素
+            queuePrioity.prototype.front = function () {
+                return this.queueList[0]
+            }
+            // 获取队列的长度
+            queuePrioity.prototype.size = function () {
+                return this.queueList.length
+            }
+            // 判断队列是否为空
+            queuePrioity.prototype.isEmpty = function () {
+                return this.queueList.length == 0
+            }
+            // 将数组元素转为字符串
+            queuePrioity.prototype.toString = function () {
+                // 定义一个空字符串
+                var queueString = "";
+                for (var i = 0; i < queueString.length; i++) {
+                    queueString += this.queueList[i].element + "-" + this.queueList[i].prioity + " "
+                }
+                return queueString
+            }
+
+            // 对元素和优先级进行一个封装
+            function queueBox(element,prioity){
+                this.element = element;
+                this.prioity = prioity;
+            }
+
+            // 实现插入方法
+            queuePrioity.prototype.enQueue = function(element,prioity){
+                // 创建一个对象
+                var queuebox = new queueBox(element,prioity);
+                // 判断队列是否为空
+                if(this.queueList.length == 0){
+                    // 队列为空，直接Push一个值
+                    this.queueList.push(queuebox);
+                }else{
+                    // 队列不为空时
+                    // 设置一个标志位flag 用于标记是否队列元素优先级均小于要插入的元素
+                    var flag = false;
+                    // 对队列元素进行遍历
+                    
+                    for(var i = 0; i < this.queueList.length; i++){
+                        
+                        // 根据优先级进行判断，是否要进行插入
+                        if(this.queueList[i].prioity < queuebox.prioity){
+                            // 队列中的元素优先级小于要添加的元素的优先级 slice(要插入的位置开始,要插入的数量,要插入的元素)
+                            this.queueList.splice(i,0,queuebox);
+                            // 设置标志位
+                            flag = true;
+                            break
+                        }
+                    }
+
+                    // 判断标志位是否为true
+                    if(!flag){
+                        this.queueList.push(queuebox);
+                    }
+                }
+                
+
+            }
+        }
+
+        // 创建一个队列
+        var queueprioity = new queuePrioity();
+        queueprioity.enQueue("zhaoshun", 100)
+        queueprioity.enQueue("chenfeng", 10)
+        queueprioity.enQueue("wenbo", 90)
+        queueprioity.enQueue("baolie", 1)
+        
+        queueprioity.enQueue("pengzhen", 13)
+        console.log(queueprioity.toString());
+        
+        
+
+    </script>
+</body>
+</html>

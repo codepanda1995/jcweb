@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 出租车打车计费
+        // 1.没有堵车 上车起步价为13元(三公里内),之后每超过一公里加五元
+        // 2.遇到堵车 堵车另外再加10元堵车费
+        var car = (function(){
+            var start = 13;//起步价
+            var total = 0;//总费用
+            return {//返回的是一个方法对象
+                // 没有堵车
+                price: function(n){//变量n是行车的里程
+                    //判断行车里程是否大于3公里
+                    if(n <= 3){
+                        return total = start;
+                    }else{
+                        return total = start + (n - 3) * 5;
+                    }
+                },
+                // 遇到拥堵
+                yongdu: function(flag){
+                    return flag ? total + 10 : total;
+                }
+
+            }
+
+        })();
+        console.log(car.price(13));
+        console.log(car.yongdu(1))
+        
+        
+    </script>
+</body>
+</html>

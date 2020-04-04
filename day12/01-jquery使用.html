@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // 在页面DOM加载完毕后执行代码
+        $(function(){
+            $("div").hide();
+        });
+        // 在页面DOM加载完毕后执行代码
+        $(document.ready(function(){
+            $("div").hide();
+        }))
+
+        // $是juqery顶级对象($是别称)
+        $(function(){
+
+        });
+        jQuery(function(){
+
+        });
+
+        
+
+    </script>
+    <div></div>
+</body>
+</html>

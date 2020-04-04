@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <script src='./js/vue.js'></script>
+</head>
+<body>
+    <div id='app'>
+        <a v-bind:href="baidu" v-text="text"></a>
+        <button @click="changeURL">切换</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                baidu: "http://www.baidu.com",
+                text:"百度"
+            },
+            methods: {
+                changeURL: function(){
+                    // 修改值
+                    this.baidu= "http://www.jd.com",
+                    this.text= "京东"
+                }
+            }
+        });
+    </script>
+</body>
+</html>

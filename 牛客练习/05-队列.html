@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定义一个队列
+        function Queue(){
+            // 声明一个数组，用来存储数据
+            this.queueList = [];
+            // 向队列中添加数据
+            Queue.prototype.inputQueue= function(element){
+                this.queueList.push(element);
+            }
+            // 从队列前端删除数据第一个
+            Queue.prototype.deleteQueue = function(){
+                // shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。
+                return this.queueList.shift()
+            }
+
+            // 从队列中查看前端元素
+            Queue.prototype.front = function(){
+                return this.queueList[0]
+            }
+            // 获取队列的长度
+            Queue.prototype.size = function(){
+                return this.queueList.length
+            }
+            // 判断队列是否为空
+            Queue.prototype.isEmpty = function(){
+                return this.queueList.length == 0
+            }
+            // 将数组元素转为字符串
+            Queue.prototype.toString = function(){
+                // 定义一个空字符串
+                var queueString = "";
+                for(var i = 0; i < queueString.length; i++){
+                    queueString += this.queueList[i] + ""
+                }
+                return queueString
+            }
+        }
+  
+
+        // 击鼓传花
+    
+        // 向队列中依次添加值 zhaoshun wenbo chenfeng baolie pengzhen
+
+
+        // 封装一个函数 peopleList:玩游戏的人员,num：要计数的数字
+        function passFlower(peopleList,num){
+            // 创建一个队列
+            var flowerQueue = new Queue();
+            // 向队列中传值
+            flowerQueue.queueList = peopleList;
+            // 如果元素长度>1
+            if(flowerQueue.size() > 1){
+                // 进行击鼓传花,将前端元素进行移除添加到末尾
+                for(var i = 0; i < num - 1; i++){
+                    flowerQueue.inputQueue(flowerQueue.deleteQueue());
+                }
+                // 移除第num个元素
+                flowerQueue.deleteQueue()
+            }
+            // 最终获胜的人
+            console.log("最终获胜的人是 " + flowerQueue.front());
+  
+        }
+
+        var peopleList = ['zhaoshun', 'wenbo', 'chenfeng', 'baolie', 'pengzhen']
+        passFlower(peopleList,3)
+
+
+
+        
+        
+        
+
+    </script>
+</body>
+</html>

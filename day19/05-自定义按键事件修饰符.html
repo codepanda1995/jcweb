@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+        <script src=''></script>
+    </head>
+    <body>
+        <div id='app'>
+            倪泽平：<input type="text" @keyup.s="handle" v-model="info" >
+        </div>
+        <script src="./js/vue.js"></script>
+        <script>
+            Vue.config.keyCodes.s = 83;
+            var vm = new Vue({
+                el:'#app',
+                data:{
+                    info:""
+                },
+                methods: {
+                    handle:function(event){
+                        console.log(event.keyCode);
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定义函数
+        function ajax(options){
+            // 创建ajax对象
+            var xhr = new XMLHttpRequest();
+            // 配置ajax对象
+            xhr.open(options.type,options.url);
+            // 发送请求
+            xhr.send();
+            // 监听xhr对象在的onload事件
+            xhr.onload = function(){
+                options.success(xhr.responseText);
+            }
+
+        }
+        ajax({
+            // 请求方式
+            type:"get",
+            // 请求地址
+            url:"http://localhost:3000/first",
+            success:function(data){
+                console.log("这是success函数"+ data);
+            }
+        })
+    </script>
+</body>
+</html>

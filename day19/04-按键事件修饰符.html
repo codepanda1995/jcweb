@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <form action="">
+            <div>
+                用户名：<input type="text" @keyup.delete="clear" v-model="uname"><br>
+            </div>
+            <div>
+                密码：<input type="text" @keyup.enter="handle" v-model="pwd"><br>
+            </div>
+            <div>
+                <input type="button" @keyup.enter="submit" value="提交">
+            </div>
+        </form>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                uname:"",
+                pwd:""
+            },
+            methods:{
+                handle:function(){
+                    console.log(this.uname,this.pwd);
+                },
+                clear:function(){
+                    // 按delete键时进行清空输入框
+                    this.uname = "";
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <script src='./js/vue.js'></script>
+    <style>
+        .current{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id='app'>
+        <panda-list :list="list">
+            <!-- slot-scope是用来获取子组件绑定的属性 slotProps插槽传递的值-->
+            <template slot-scope="slotProps">
+                <strong v-if="slotProps.info.id == 2" class="current">{{slotProps.info.name}}</strong>
+                <span v-else>{{slotProps.info.name}}</span>
+            </template>
+        </panda-list>
+    </div>
+    <script>
+        Vue.component("panda-list",{
+            props:["list"],
+            template:`
+                <div>
+                    <li :key="item.id" v-for="item in list">
+                        <slot :info="item">{{item.name}}</slot>
+                    </li>
+                    
+                </div>
+            `
+        })
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                list:[{
+                    id:1,
+                    name:'apple'
+                },{
+                    id:2,
+                    name:'banana'
+                },{
+                    id:3,
+                    name:'mango'
+                }]
+            },
+            methods: {
+
+            }
+        });
+    </script>
+</body>
+</html>

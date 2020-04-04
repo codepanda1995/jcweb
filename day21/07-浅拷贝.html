@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data = {
+            id: 1,
+            name: "panda",
+            arr:["red","pink"],
+            obj:{
+                gender:"female"
+            }
+        }
+        // 定义一个新对象
+        var newObj = {}
+        // // 遍历旧对象
+        // for(var k in data){
+        //     newObj[k] = data[k];
+        // }
+        // console.log(newObj);
+
+        Object.assign(newObj, data);
+        console.log(newObj);
+        
+    </script>
+    
+</body>
+</html>

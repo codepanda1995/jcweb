@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+body ul {
+  margin: 0;
+  padding: 0;
+}
+li{
+    list-style:none;
+}
+::placeholder{
+    color: red;
+}
+
+#box{
+    width: 600px;
+    height: 400px;
+    background-color: pink;
+    background:url(../img/yangchaoyue4.jpg);
+}

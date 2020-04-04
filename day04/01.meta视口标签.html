@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            border: 2px solid red;
+            background: url(img/dog.jpg) no-repeat;
+            /* background-size: 图片宽度 图片高度; */
+            /* background-size: 500px 200px; */
+            /* background-size: 500px; 默认的是图片宽度 高度等比例进行缩放*/
+            /* background-size: contain; 高度和宽度等比例拉伸，直到宽度或者高度铺满盒子 */
+            
+            /* background-size: cover; 宽高会等比进行放缩，直到整个图片覆盖盒子 */
+        }
+        div{
+            /* 将盒子变成CSS3中的盒子模型，padding和border不会再撑开盒子 */
+            box-sizing: border-box;
+            /* 盒子还是传统盒子内容区域就是盒子本身大小 */
+            box-sizing: content-box;
+
+            /* 点击高亮需要进行清除，设置transparent完成透明 */
+            -webkit-tap-highlight-color: transparent;
+            /* 在移动端浏览器默认的外观在ios上加上这个属性才能给那妞和输入框自定义样式 */
+            -webkit-appearance: none;
+            /* 禁用长按页面时的弹出菜单 */
+            -webkit-touch-callout: none;
+            
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

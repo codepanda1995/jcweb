@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <script src='./js/vue.js'></script>
+</head>
+<body>
+    <div id='app'>
+        <div :style="{fontSize:fontSize + 'px'}">{{pmsg}}</div>
+        <menu-item :par="par" @enlarge-text="handle"></menu-item>
+    </div>
+    <script>
+        Vue.component("menu-item",{
+            props:["par"],
+            template:`
+                <div>
+                    <ul>
+                        <li :key="index" v-for="(item,index) in par">{{item}}</li>
+                    </ul>    
+                    <button @click="par.push('lemon')">点击</button>
+                    <button @click="$emit('enlarge-text')">扩大字体大小</button>
+                </div>
+            `
+        })
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                pmsg:"父组件中的内容",
+                par:["apple","orange","banana"],
+                fontSize: 10
+            },
+            methods: {
+                handle:function(){
+                    // 扩大字体大小
+                    this.fontSize += 5;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

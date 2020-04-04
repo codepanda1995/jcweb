@@ -1,0 +1,309 @@
+/* 公共样式 */
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+// 声明字体
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?hlsnwq');
+  src:  url('../fonts/icomoon.eot?hlsnwq#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?hlsnwq') format('truetype'),
+    url('../fonts/icomoon.woff?hlsnwq') format('woff'),
+    url('../fonts/icomoon.svg?hlsnwq#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+.icomoon{
+    font-family: 'icomoon';
+    font-size: 16px;
+    line-height: 26px;
+}
+/* 版型 */
+.w{
+    width: 1200px;
+    margin: 0 auto;
+}
+/* 主题颜色 */
+.style-red{
+    color: #c81623;
+}
+/* 顶部快捷导航 */
+.spacer{
+    width: 1px;
+    height: 12px;
+    background-color: #666;
+    margin: 9px 12px 0;
+}
+/* 顶部快捷导航栏 */
+.shortcut{
+    height: 31px;
+    background-color: #f1f1f1;
+    line-height: 31px;
+    li{
+        float: left;
+    }
+}
+/* header */
+.header{
+    height: 105px;
+
+    position: relative;
+    /* logo */
+    .logo{
+        position: absolute;
+        width: 170px;
+        height: 60px;
+        top: 25px;
+        left: 0;
+        
+        a{
+            // text-indent: -999px;
+            // overflow: hidden;//溢出隐藏
+            display: block;
+            font-size: 0;//第二种方法
+            width: 170px;
+            height: 60px;
+            background: url(../img/logo.png) no-repeat;
+        }
+    }
+    /* 搜索 */
+    .search{
+        position: absolute;
+  
+        top: 25px;
+        left: 348px;
+        /*输入框*/ 
+        .text{
+            float: left;
+            width: 445px;
+            height: 32px;
+            border: 2px solid #b1191a;
+            padding-left: 10px;
+            color: #ccc;
+            
+        }
+        /*按钮*/ 
+        .btn{
+            float: left;
+            height: 36px;
+            width: 82px;
+            background-color: #b1191a;
+            border: 0;
+            color: #fff;
+            font-size: 16px;
+        }
+    
+    }
+    /* 热度词汇 */
+    .hotwords{
+        position: absolute;
+        top: 65px;
+        left: 348px;
+        a{
+            margin: 0 10px;
+            
+        }
+    }
+    /* 购物车 */
+    .shopcar{
+        position: absolute;
+        top: 25px;
+        right: 64px;
+        width: 138px;
+        height: 34px;
+        border: 1px solid #dfdfdf;
+        background-color: #f7f7f7;
+        line-height: 34px;
+        text-align: center;
+        .cart{
+            font-family: "icomoon";
+            color: #da5555;
+        }
+        .arrow{
+            font-family: "icomoon";
+            margin-left: 5px;
+        }
+        //购物车数量
+        .count{
+            position: absolute;
+            top: -5px;
+            left: 100px;
+            background-color: #e60012;
+            height: 14px;
+            
+            padding: 0 3px;
+            line-height: 14px;
+            color: #fff;
+            border-radius: 7px 7px 7px 0;
+        }
+
+    } 
+}
+/* 导航栏  */ 
+.nav{
+    height: 45px;
+    border-bottom: 2px solid #b1191a;
+    //下拉菜单
+    .dropdown{
+        width: 209px;
+        height: 45px;
+         
+        .dt{
+            width: 100%;
+            height: 100%;
+            background-color: #b1191a;
+            font-size: 16px;
+            color: #fff;
+            text-align: center;
+            line-height: 45px;
+        }
+        .dd{
+            height: 465px;
+            background-color: #c81623;
+            margin-top: 2px;
+        }
+    }
+    //上导航栏
+    .navitems{
+        margin-left: 10px;
+        li{
+            float: left;
+            a{
+                display: block;
+                height: 45px;
+                padding: 0 25px;
+                line-height: 45px;
+                font-size: 16px;
+            }
+        }
+    }
+}
+/*菜单栏*/ 
+.menu_item{
+    height: 31px;
+    line-height: 31px;
+    margin-left: 1px;
+    padding:0 10px;
+    transition: all .2s;
+    a{
+
+        color: #fff;
+        font-size: 14px;
+    }
+    i{
+
+        font-family: "icomoon";
+        font-size: 18px;
+        color: #fff;
+        float: right;
+    }
+}
+
+/*当鼠标移入*/ 
+.menu_item:hover{
+    background-color: #fff;
+    margin-left: 8px;
+    a{
+        color: #c81623;
+    }
+}
+
+/*底部栏设计*/
+.footer{
+    height: 386px;
+    background-color: #f5f5f5;
+    padding-top: 30px;
+    /* footer_service 底部服务栏设计*/ 
+    .footer_service{
+        height: 79px;
+
+        border-bottom: 1px solid #ccc;
+        li{
+            float: left;
+            width: 240px;
+            height: 79px;
+        }
+    }
+}
+
+.footer_service_icon{
+    //浮动的盒子可以直接给大小
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-left: 35px;
+     background: url(../img/icons.png) no-repeat ;
+}
+
+//正品保障
+.footer_service_zheng{
+    
+    background-position:  -253px -3px ;
+
+    
+}
+
+.footer_service_tit{
+    float: left;
+    margin-left: 5px;
+    h5{
+        margin: 5px 0;
+    }
+}
+
+//极速物流
+.footer_service_kuai{
+
+    background-position: -255px -54px ;
+
+}   
+
+.footer_service_bao{
+
+    background-position: -257px -105px ;
+
+}   
+
+.footer_help{
+    height: 187px;
+ 
+    border-bottom: 1px solid rgb(179, 168, 168);
+}
+
+.footer_help_list{
+    width: 150px;
+    padding: 20px 0 0 50px;
+    float: left;
+    dt{
+        height: 25px;
+        font-size: 16px;
+    }
+    dd{
+        height: 22px;
+    }
+}
+
+// 客户端二维码
+.footer_help_app dt,
+.footer_help_app p{
+    padding-left: 15px;
+}
+.footer_help_app img{
+    margin: 7px;
+}
+
+// 版权、地址信息
+.footer_copyright{
+    text-align: center;
+}
+.footer_copyright_links{
+    margin: 20px 0 15px 0;
+
+}
+.footer_copyright_info{
+    line-height: 18px;
+}

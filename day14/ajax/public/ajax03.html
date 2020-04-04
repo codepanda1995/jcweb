@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        用户名：<input type="text" name="" id="username">        
+    </p>
+    <p>
+        密码：<input type="password" name="" id="password">
+    </p>
+    <button id="btn">提交</button>
+    <script type="text/javascript">
+        // 获取按钮元素
+        var btn = document.getElementById("btn");
+        // 获取用户名元素
+        var username = document.getElementById("username");
+        //获取密码元素
+        var password = document.getElementById("password");
+        // 为按钮添加点击事件
+        btn.onclick = function(){
+            // 创建ajax对象
+            var xhr = new XMLHttpRequest();
+            // 获取用户在文本框中输入的内容
+            var nameValue = username.value;
+            var pwdValue = password.value;
+            // 拼接请求参数
+            var params = "username=" + nameValue + "&password=" + pwdValue;
+            // 告诉ajax对象要向那儿发送请求
+            // xhr.open("请求方式","请求地址");
+            xhr.open("get", "http://localhost:3000/get?" + params);
+            // 发送请求
+            xhr.send();
+            // 获取服务器端相应到客户端的数据
+            xhr.onload = function () {
+                console.log(xhr.responseText);
+            }
+        }
+    </script>
+</body>
+
+</html>

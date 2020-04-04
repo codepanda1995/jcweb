@@ -1,0 +1,294 @@
+/*  主页的样式 */
+.main{
+    width: 980px;
+    height: 455px;
+
+    margin-left: 219px;
+    margin-top: 10px;
+}
+// 焦点图
+.focus{
+    position: relative;
+    width: 720px;
+    height: 455px;
+   
+}
+//左箭头
+.arrow_l,
+.arrow_r{
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    width: 24px;
+    height: 40px;
+    background-color: rgba(0,0,0, .3);
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    font-family: "icomoon";
+}
+.arrow_r{
+    right: 0px;
+}
+// 滚动圆点
+.circle{
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+    li{
+        float: left;
+        width: 8px;
+        height: 8px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        margin: 0 3px;
+        cursor: pointer;
+    }
+    //当前滚动点
+    .current{
+        border: 1px solid#000;
+    }
+}
+
+//新闻快报
+.newsflash{
+    width: 250px;
+    height: 455px;
+
+}
+
+.news{
+    height: 163px;
+    border: 1px solid #ccc;
+}
+
+.news_hd{
+    height: 32px;
+    // dotted 点线 dashed 虚线
+    border-bottom: 1px dotted #ccc;
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 32px;
+}
+
+.news_hd a{
+    float: right;
+    font-size: 12px;
+    font-family: "icomoon";
+}
+
+.news_bd{
+    padding: 10px 0 0 15px;
+}
+.news_bd li{
+    height: 23px;
+}
+//生活服务
+.lifeservice{
+    
+    //超出部分影藏
+    height: 208px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-top: none;
+    ul{
+        width: 252px;
+    }
+    li{
+        position: relative;
+        float: left;
+        width: 62px;
+        height: 70px;
+        border-right: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        a{
+            display: block;
+            height: 100%;
+            overflow: hidden;//解决外边距合并引起的塌陷
+            
+        }
+        p{
+            text-align: center;
+        }
+    }
+}
+.hot{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 12px;
+    height: 15px;
+    background: url(../img/jian.jpg) no-repeat;
+}
+.service_ico{
+    display: block;
+    width: 24px;
+    height: 24px;
+    background:url(../img/icons.png) no-repeat;
+    margin: 10px auto;
+}
+.service_ico_huafei{
+    background-position: -17px -16px;
+}
+.service_ico_jipiao{
+    width: 26px;
+    background-position:  -78px -16px;
+}
+//特价优惠
+.bargain{
+    height: 75px;
+    margin-top: 5px;
+}
+//推荐
+.recommond{
+    height: 163px;
+    margin-top: 10px;
+    background-color: pink;
+    //左侧
+    .recommond_l{
+        width: 200px;
+        height: 100%;
+        background-color: #5c2251;
+        text-align: center;
+        img{
+            margin: 30px 0 10px 0;
+            
+        }
+        h3{
+            font-weight: normal;//正常字体
+            font-size: 18px;
+            color: #fff;
+        }
+    }
+    .recommond_r{
+        width: 1000px;
+        height: 163px;
+        background-color: #ebebeb;
+       
+        li{
+            float: left;
+            width: 249px;
+            border-right: 1px solid #ccc;
+            height: 145px;
+            margin-top: 10px;
+        }
+        .last{
+            border-right: 0;
+        }
+    }
+}
+
+.tab_list{
+    float: right;
+    line-height: 30px;
+    li{
+        float: left;
+    }
+    a{
+        margin: 0 15px;
+    }
+}
+
+
+/* floor 楼层区*/
+.box-hd{
+    height: 30px;
+    margin-top: 25px;
+    border-bottom: 2px solid #c81623;
+    h3{
+        float: left;
+        font-size: 18px;
+        color: #c81623;
+    }
+    
+}
+.box-bd{
+    height: 360px;
+    li{
+        overflow: hidden;
+    }
+   
+    img{
+        transition: all .2s;
+    }
+    img:hover{
+        margin-left: 8px ;
+    }
+    
+}
+.tab-con{
+
+    li{
+        float: left;
+        height: 360px;
+        
+    }
+    
+}
+.tab-con-item{
+    border-bottom: 1px solid #ccc;
+}
+.tab-con-list{
+    overflow: hidden;
+    margin-bottom: 15px;
+    height: 100px;
+    li{
+      
+        width: 86px;
+        height: 32px;
+        line-height: 32px;
+        border-bottom: 1px solid #ccc;
+        margin-left: 10px;
+        text-align: center;
+    }
+    
+}
+
+
+.tab-con-item{
+    
+    height: 180px;
+    border-bottom: 1px solid #ccc;
+}
+.w209{
+    width: 209px;
+   
+}
+.w329{
+    width: 329px;
+    
+}
+.w219{
+    width: 219px;
+    border-right: 1px solid #ccc;
+   
+}
+.w220{
+    width: 220px;
+    border-right: 1px solid #ccc;
+   
+}
+
+
+/*电梯导航*/ 
+.flexedtool{
+    position: fixed;
+    top: 200px;
+    left: 50%;
+    margin-left: -676px;
+    width: 66px;
+    background-color: #fff;
+    li{
+        height: 32px;
+        line-height: 32px;
+        text-align: center;
+        font-size: 12px;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+    }
+    .current{
+        background-color: #c81623;
+        color:#fff;
+    }
+
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 800px;
+            height: 600px;
+            background-color: pink;
+            display: flex;
+            /* 换行 */
+            flex-wrap: wrap;
+            /* 因为有了换行，此时侧轴控制子元素的对齐方式可以使用align-content */
+            /* align-content: flex-start; 自上而下居于侧轴头部 */
+            /* align-content: center; 在侧轴居中 */
+            /* align-content: space-between; 子项在侧轴上下边紧贴 */
+            /* align-content: space-around; 子项在侧轴剩余空间平分*/
+            /* align-content: stretch; 设置子项元素高度平分父元素高度 */
+        }
+        .box div{
+            
+            height: 200px;
+            width: 150px;
+            background-color: orange;
+            color: #fff;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        
+    </div>
+</body>
+</html>

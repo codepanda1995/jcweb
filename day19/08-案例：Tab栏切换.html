@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <script src='./js/vue.js'></script>
+    <style>
+        .tab ul{
+            overflow: hidden;
+            padding:0;
+            margin: 0;
+        }
+        .tab ul li{
+            box-sizing: border-box;
+            padding: 0;
+            float: left;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            list-style: none;
+            text-align: center;
+            border-top: 1px solid pink;
+            border-right: 1px solid pink;
+            cursor: pointer;
+        }
+        .tab ul li:first-child{
+            border-left: 1px solid pink;
+        }
+        .tab ul li.active{
+            background-color: orange;
+        }
+        .tab div{
+            width: 300px;
+            height: 500px;   
+            display: none;
+            text-align: center;
+            font-size: 30px;
+            line-height: 300px;
+            border: 1px solid pink;
+            border-top: 0px;
+        }
+        .tab div.current{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id='app'>
+        <div class="tab">
+            <ul>
+                <li @click="change(index)" :class="currentIndex === index ? 'active':''" :key="item.id" v-for="(item,index) in list">{{item.title}}</li>
+            </ul>
+            <div :class="currentIndex === index ? 'current':''" :key="item.id" v-for="(item,index) in list">
+                <img :src="item.path" alt="">
+            </div>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                currentIndex: 0,//选项卡当前的索引
+                list:[{
+                    id:1,
+                    title:"程潇",
+                    path:"img/chengxiao.jpg"
+                }, {
+                    id: 2,
+                    title: "迪丽热巴",
+                    path: "img/guanxiaotong2.jpg"
+                }, {
+                    id: 3,
+                    title: "古力娜扎",
+                    path: "img/yangchaoyue3.jpg"
+                }]
+            },
+            methods: {
+                // 点击选项卡，进行切换内容
+                change:function(index){
+                    // 本质是操作类名
+                    this.currentIndex = index;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

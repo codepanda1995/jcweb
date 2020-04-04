@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.js"></script>
+</head>
+<body>
+   <button id="btn">发送请求</button>
+   <script>
+        function fn(response){
+            console.log(response);
+        }
+
+        $("#btn").on("click", () => {
+            $.ajax({
+                url: "/jsonp",
+                // 向服务器端传递函数名字的参数名称
+                jsonp:"cb",
+                jsonpCallback:"fn",//调用的函数
+                //代表现在要发送的是jsonp请求
+                dataType:"jsonp",
+
+            })
+        })
+   </script>
+</body>
+</html>

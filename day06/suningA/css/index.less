@@ -1,0 +1,104 @@
+//将common样式引入到index文件中
+@import "common";
+
+body{
+
+    min-width: 320px;
+    width: 15rem;
+    
+    line-height: 1.5rem;
+    font-family:  Arial,Helvetica;
+    background: #f2f2f2;
+    height: 1000px;
+    margin: 0px auto!important;//
+}
+//页面元素rem计算公式 = 页面元素的px/html字体大小
+@baseFont:50;
+//顶部搜索栏 search-wrap
+.search-wrap{
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15rem;
+    height: 88rem/@baseFont;
+    background-color: #ffc001;
+}
+
+//分类
+.classify,.login{
+    width: 36rem / @baseFont;
+    height: 60rem / @baseFont;
+    background: url(../img/classify.png) no-repeat;
+    background-size: 36rem/@baseFont auto;
+    margin: 0.22rem 0.5rem 0.14rem 0.48rem;
+}
+//搜索
+.search{
+    flex: 1;
+   
+    input{
+        
+        outline: none;
+        width: 100%;
+        border: 0;
+        height: 66rem / @baseFont;
+        border-radius: 33rem / @baseFont;
+    
+        margin-top: 12rem / @baseFont;
+        font-size: 25rem / @baseFont;
+        padding-left: 55rem / @baseFont;
+        color: #757575;
+    }
+}
+//登录
+.login{
+   
+    background: url(../img/login.png) no-repeat;
+    
+}
+//轮播图
+.banner{
+    width: 750rem/@baseFont;
+    height: 380rem/@baseFont;
+  
+    img{
+   
+        height: 100%;
+        width: 100%;
+    }
+}
+//广告部分
+.ad{
+    display: flex;
+    a{
+        flex: 1;
+        img{
+        
+            width: 100%;
+        }
+    }
+    
+}
+//nav导航部分
+nav{
+    width: 750rem / @baseFont;
+    a{
+        float: left;
+        width: 150rem / @baseFont;
+        height: 140rem / @baseFont;
+     
+        text-align: center;
+        img{
+            display: block;
+            width: 82rem / @baseFont;
+            height: 82rem / @baseFont;
+            margin: 5rem / @baseFont auto 0;
+        }
+        span{
+            font-size: 25rem/@baseFont;
+            color: #333;
+        }
+    }
+}

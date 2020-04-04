@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button>点击一下</button>
+    </div>
+    <script>
+        var btn = document.querySelector("button");
+        btn.onclick = function(){
+            this.disabled = true;//this指向的是btn
+            setTimeout(function(){
+                // this.disabled = false;//如果没有绑定bind，则此时this指向的是window
+                this.disabled = false;//this指向的是btn对象
+            }.bind(this),2000);//this指向的是btn对象
+
+        }
+    </script>
+</body>
+</html>

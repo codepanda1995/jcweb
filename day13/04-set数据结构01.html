@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const s1 = new Set();
+        console.log(s1.size);
+        // 向set数据结构中添加值
+        s1.add("2").add("3");
+        console.log(s2.size);
+        // 向set数据结构中删除值
+        const s3 = s2.delete("1");
+        console.log(s3.size);
+        // 向set数据结构中是否包含值
+        s3.has("3");
+        console.log(s3.size);
+        // 向set数据结构中清空值
+        s3.clear();
+        console.lgo(s3);
+        // 遍历取值
+        const s5 = new Set(["a","b","c"]);
+        s5.forEach(v=>{
+            console.log(v);
+        })
+    </script>
+</body>
+</html>

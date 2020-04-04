@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建一个链表构造函数
+        function NodesList(){
+            // 定义一个链表节点
+            function Node(data){
+                this.data = data
+                this.next = null
+            }
+
+            // 属性 链表头部、链表长度
+            this.head = null
+            this.length = 0
+
+            // 追加节点
+            NodesList.prototype.append = function(data){
+                 // 新创建一个节点对象
+                var newNode = new Node(data);
+                // 判断当前链表长度是否为0 即只有一个头部节点
+                if(this.length == 0){
+                    
+                    // 那么将头部节点指向追加的节点
+                    this.head = newNode
+                }else{//如果当前链表长度不为0，表示该链表有其他节点
+                    // 那么需要有个循环，从头部一直到后面，待到末端进行追加
+                    var current = this.head
+                    while(current.next){
+                        // 当前节点的next指向下一个节点存在时，表示其不是末端节点
+                        // 那么将当前节点指向的节点赋值给当前节点，也就是往后一直捋
+                        current = current.next
+                    }
+                    //直到找到最后一个节点没有Next指向，那么就是末端节点进行追加
+                    current.next = newNode
+                }
+                // 最后链表长度进行加一操作
+                this.length += 1
+            }
+
+            // 从中间进行插入节点
+            NodesList.prototype.insert = function(data,position){
+                // 进行创建新的节点对象
+                var newNode = new Node(data);
+                // 先要对其插入的位置进行判断
+                if(position<0 || position > this.length){
+                    return false;
+                    
+                }
+                
+                if(position==0){
+                    // 将节点直接插入头部节点,也就是插入节点成了头部节点
+                    newNode.next = this.head
+                    this.head = newNode
+                    
+
+                } else{
+                    // 当前节点先假设为头部节点
+                    var current = this.head
+                    // 要插入位置的前一个节点
+                    var preview = null
+               
+                    // 节点计数为
+                    var count = 0
+                    // 当前节点计数==要插入的位置时
+                    while(count++ < position){
+                        // 那么前一节点的指向节点就是要插入的节点
+                        preview = current                      
+                        current = current.next
+                    }
+                   
+                    // 新插入节点的指向节点是当前节点
+                    newNode.next = current                  
+                    preview.next = newNode
+                   
+
+                }
+                // 最后节点长度加一
+                this.length += 1
+                return true
+
+            }
+
+            // 根据索引获取链表数据
+            NodesList.prototype.get = function(position){
+                // 先对Positon进行判断是否越界
+                if(position < 0 || position >= this.length){
+                    return null
+                }
+                // 定义当前的节点current
+                var current = this.head
+                // 定义一个计数
+                var count = 0
+                while(count++ < position){
+           
+                    current = current.next
+                }
+                // 当count == position
+                return current.data
+            }    
+
+            // 根据索引进行更换链表数据
+            NodesList.prototype.update = function(data,position){
+                // 先判断输入的position是否越界
+                if(position < 0 || position >= this.length){
+                    return null
+                }
+
+                var current = this.head
+                var count = 0
+
+                while(count++ < position){
+                    current = current.next
+                }
+
+                current.data = data
+                return true
+
+            }
+
+            // 根据索引对链表节点进行删除
+            NodesList.prototype.removeAt = function(position){
+                // 判断position是否越界
+                if(position < 0 || position > this.length){
+                    return null
+                }
+
+                var current = this.head
+                var count = 0
+                var preview = null
+                if(position == 0){
+                    this.head = current.next
+                }else{
+                    var count = 0
+                    // 
+                    while (count++ < position) {
+                        preview = current
+                        current = current.next
+                    }
+                    preview.next = current.next
+                }
+               
+                this.length -= 1
+                return true
+
+            }
+
+            // 从链表中删除指定数据
+            NodesList.prototype.remove = function (data) {
+                // 先查找该数据在链表中的索引
+                var poition = this.indexOf(data)
+
+                // 找到了该索引之后进行删除
+                return this.removeAt(poition)
+                
+                
+            }
+
+            // 根据data数据查询索引
+            NodesList.prototype.indexOf = function(data){
+                // 需要从头到尾进行遍历
+                var current = this.head
+                var count = 0
+                while(current){
+                    if(current.data == data){
+                        return count
+                    }
+                    current = current.next
+                    count++
+                    
+                }
+                return null
+            }
+
+            // 将链表数据转为字符串
+            NodesList.prototype.toString = function(){
+                // 首先创建一个空字符串用来装数据
+                var newString = ""
+                // 定义变量用来装当前节点
+                var current = this.head
+
+                // 遍历节点
+                while(current){
+                    newString += current.data + " "
+                    current = current.next
+                    
+                }
+
+                return newString
+            }
+
+            // 判断链表数据是否为空
+            NodesList.prototype.isEmpty = function(){
+                // 
+                if(this.length == 0){
+                    // 链表长度为0时反馈为true
+                    return true
+                }
+                return false
+            }
+
+            // 链表数据长度
+            NodesList.prototype.size = function(){
+                return this.length
+            }
+           
+        }
+
+
+        // 创建一个链表对象
+        var nodelist = new NodesList()
+        // 向链表进行追加节点
+        nodelist.append("赵舜")
+        nodelist.append("文波")
+        nodelist.append("彭珍")
+        console.log(nodelist);
+        nodelist.insert("鲍烈",1)
+        console.log(nodelist);
+        console.log(nodelist.toString());
+        console.log(nodelist.get(2));
+        console.log(nodelist.update("陈凤",2));
+        console.log(nodelist.get(2));
+        console.log(nodelist.removeAt(0));
+        console.log(nodelist.get(0));
+        console.log(nodelist.indexOf("鲍烈"));
+        console.log(nodelist.remove("鲍烈"));
+        console.log(nodelist.indexOf("鲍烈"));
+        console.log(nodelist.isEmpty());
+        console.log(nodelist.size());
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

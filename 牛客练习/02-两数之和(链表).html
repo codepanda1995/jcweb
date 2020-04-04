@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function NodeList(){
+            // 先要定义一个链表构造函数
+            function Node(data){
+                this.next = null
+                this.data = data
+            }
+
+            // 链表头部节点
+            this.head = null
+            // 链表长度为length
+            this.length = 0
+
+            // 向链表中追加值
+            NodeList.prototype.append  = function(data){
+
+                // 创建一个新链表
+                var newNode = new Node(data)
+                if(this.length === 0){
+                    this.head = newNode
+                }else{
+                    // 那么需要有个循环，从头部一直到后面，待到末端进行追加
+                    var current = this.head
+                    while (current.next) {
+                        // 当前节点的next指向下一个节点存在时，表示其不是末端节点
+                        // 那么将当前节点指向的节点赋值给当前节点，也就是往后一直捋
+                        current = current.next
+                    }
+                    //直到找到最后一个节点没有Next指向，那么就是末端节点进行追加
+                    current.next = newNode
+                }
+                // 最后链表长度进行加一操作
+                this.length += 1
+            }
+
+            // 根据索引获取节点的值
+            NodeList.prototype.get = function(position){
+                // 先要判断输入的position是否在范围之内
+                if(position < 0 || position >= this.length){
+                    return null
+                }
+
+                var current = this.head
+                var count = 0
+                while(count ++ < position){
+                    current = current.next
+                }
+                return current.data
+            }
+
+            // 根据值获取索引
+            NodeList.prototype.indexOf = function(value){
+            
+
+                // 定义
+                var current = this.head
+                var count = 0
+                // 如果当前值存在
+                while(current){
+                    if (current.data === data) {
+                        return count
+                    }
+                    current = current.next
+                    count += 1
+
+                }
+                return null
+
+
+            }
+
+        };
+
+        // 封装函数
+        var addTwoNumbers = function (l1, l2) {
+            // 定义一个新链表，用来装结果
+            var nodeResult = new NodeList()
+            var num1 = l1.get(2) * 100 + l1.get(1) *10 + l1.get(0)*1
+            var num2 = l2.get(2) * 100 + l2.get(1) *10 + l2.get(0)*1
+            var sum = num1 + num2
+            nodeResult.append(parseInt(sum / 100))
+            nodeResult.append(parseInt(sum % 100 / 10))
+            nodeResult.append(parseInt(sum % 100 % 10))
+            return nodeResult
+
+        };
+
+        // 定义第一个链表
+        var NodeA = new NodeList()
+        NodeA.append(2)
+        NodeA.append(4)
+        NodeA.append(3)
+
+        var NodeB = new NodeList()
+        NodeB.append(5)
+        NodeB.append(6)
+        NodeB.append(4)
+
+        console.log(NodeA)
+        console.log(NodeB)
+
+        //
+        console.log(addTwoNumbers(NodeA, NodeB));
+        
+        console.log(parseInt(123/100));
+        
+
+    </script>
+</body>
+</html>

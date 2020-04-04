@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>Document</title>
+        <script src=''></script>
+    </head>
+    <body>
+        <div id='app'>
+            <h1>简单计算器</h1>
+
+            <div>
+                数值A：<input type="text" v-model="num1">
+            </div>
+            <div>
+                数值B：<input type="text" v-model="num2">
+            </div>
+            <div>
+                <input type="button" @click="sumFun" value="计算结果">
+            </div>
+            <div>
+                计算结果：<div v-text="sum"></div>
+            </div>
+        </div>
+        <script src="./js/vue.js"></script>
+        <script>
+            var vm = new Vue({
+                el:'#app',
+                data:{
+                    num1:"",
+                    num2:"",
+                    sum:""
+                },
+                methods: {
+                    sumFun:function(){
+                        return this.sum = parseInt(this.num1) + parseInt(this.num2);
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

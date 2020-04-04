@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        axios.defaults.baseURL = "http://localhost:3000";//设置默认url路径
+
+        async function queryData(){
+            var info = await axios.get("data");//设置接口
+            var ret = await axios.get("data2?info=" + info.data);
+            return ret.data;
+        };
+
+        queryData().then(data=>{
+            console.log(data);
+            
+        });
+    </script>
+</body>
+</html>

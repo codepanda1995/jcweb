@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <script src='./js/vue.js'></script>
+    <style>
+        form div{
+            height: 40px;
+            line-height: 40px;
+        }
+        form div span:first-child{
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id='app'>
+        <form action="http://www.baidu.com">
+            <div>
+                <span>姓名：</span>
+                <input name="uname" type="text" v-model="uname">
+            </div>
+            <div>
+                <span>性别：</span>
+                <span>
+                    <input type="radio" id="male" value="0" v-model="gender">
+                    <label for="male">男</label>
+                    <input type="radio" id="female" value="1" v-model="gender">
+                    <label for="female">女</label>
+                </span>       
+            </div>
+            <div>
+                <span>爱好:</span>
+                <span>
+                    <input type="checkbox" id="ball" value="1" v-model="hobby">
+                    <label for="ball">篮球</label>
+                    <input type="checkbox" id="sing" value="2" v-model="hobby">
+                    <label for="sing">唱歌</label>
+                    <input type="checkbox" id="dance" value="3" v-model="hobby">
+                    <label for="dnace">舞蹈</label>
+                    <input type="checkbox" id="rap" value="4" v-model="hobby">
+                    <label for="rap">说唱</label>
+                </span>
+            </div>
+            <div>
+                <span>职业：</span>        
+                <select v-model="job">
+                    <option value="0" >请选择您的职业</option>
+                    <option value="1" >前端工程师</option>
+                    <option value="2" >后端程序员</option>
+                    <option value="3" >运维工程师</option>
+                </select>        
+            </div>
+            <div>
+                <span>个人简介</span>
+                <textarea value="content" v-model="content"></textarea>
+            </div>
+            <div>
+                <input type="submit" value="提交" @click.prevent="stopSubmit">
+            </div>
+        </form>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                uname:"小平平",
+                gender:"0",
+                hobby:[2,3],
+                job:"",
+                content:""
+
+            },
+            methods: {
+                stopSubmit:function(){
+                    console.log(this)
+                    
+                }
+            }
+        });
+    </script>
+</body>
+</html>

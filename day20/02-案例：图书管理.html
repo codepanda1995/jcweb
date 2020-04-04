@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <script src='./js/vue.js'></script>
+    <link rel="stylesheet" href="dist/css/bootstrap.min.css">
+    <style>
+        .grid{
+            margin-top: 100px;
+            margin-left: 300px;
+            width: 800px;
+            text-align: center;
+        }
+        .grid .book{
+            width: 800px;
+            background-color: pink;
+            height: 37px;
+        }
+        .grid .book div{
+            padding:5px;
+        }
+        .grid thead tr{
+            background-color: pink;
+            
+        }
+        .grid thead th{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id='app'>
+        <div class="grid">
+            <h1>图书管理系统</h1>
+            <div class="book">
+                <div>
+                    <label for="id">编号：</label>
+                    <!-- 因为修改信息是根据id查询编辑的，因此需要在进行编辑时必须禁用id编辑 -->
+                    <input type="text" name="" id="id" v-model="id" :disabled="flag">
+                    <label for="name">名称：</label>
+                    <input type="text" name="" id="name" v-model="name">
+                    <button @click="addBooks">提交</button>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr :key="item.id" v-for="item in books">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.date}}</td>
+                        <td>
+                            <a href="" @click.prevent="editBooks(item.id)">修改</a>
+                            <span>|</span>
+                            <a href="" @click.prevent="deleteBooks(item.id)">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                flag:false,
+                id:"",
+                name:"",
+                books:[{
+                    id:1,
+                    name:"python",
+                    date:""
+                }, {
+                    id:2,
+                    name: "python",
+                    date: ""
+                },{
+                    id:3,
+                    name: "python",
+                    date: ""
+                }, {
+                    id:4,
+                    name: "python",
+                    date: ""
+                }]
+            },
+            methods: {
+                
+                // 添加图书
+                addBooks:function(){
+                    if(this.flag){
+                        // 编辑操作,根据当前的id去更新数组中对应的数据
+                        this.books.some((item)=>{
+                            if(item.id == this.id){
+                                item.name = this.name;
+                                // 完成更新操作后，需要终止循环
+                                return true;
+                            }
+                        });
+                        this.flag = false;
+                    }else{
+                        console.log(this);
+                        var book = {};
+                        book.id = this.id;
+                        book.name = this.name;
+                        book.date = "";
+                        this.books.push(book);
+                        
+                    }
+                    // 清空表单
+                    this.id = "";
+                    this.name = "";
+                },
+                // 修改图书
+                editBooks:function(id){
+                    this.flag = true;
+                    console.log(id);
+                    // 根据id值进行过滤出要编辑的信息
+                    var book = this.books.filter(function(item){
+                        return item.id == id;
+                    });
+                    console.log(book);
+                    // 将查询出来的信息填充到表单中
+                    console.log(this.id);
+                    this.id = book[0].id;
+                    this.name = book[0].name;
+                    
+                },
+                // 删除图书
+                deleteBooks:function(id){
+                    console.log(id);
+                    // // 首先要进行查询要删除的图书索引
+                    // var index = this.books.findIndex(function(item){
+                    //     return item.id == id;
+                    // });
+                    // // 根据索引删除数组元素
+                    // this.books.splice(index,1);
+
+                    // 方法二：通过过滤器进行删除
+                    this.books = this.books.filter(function(item){
+                        return item.id != id;
+                    });
+
+                }
+            }
+        });
+    </script>
+</body>
+</html>

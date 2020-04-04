@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 导入jquery -->
+    <script src="./js/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        // 获取用户列表信息
+        $.ajax({
+            type:'get',
+            url:"/users",
+            success:(Response)=>{
+                console.log(Response);
+            }
+
+        });
+
+        // 获取某个用户列表信息
+        $.ajax({
+            type: 'get',
+            url: "/users/10",
+            success: (Response) => {
+                console.log(Response);
+            }
+
+        });
+
+        // 删除id为1用户列表信息
+        $.ajax({
+            type: 'delete',
+            url: "/users/1",
+            success: (Response) => {
+                console.log(Response);
+            }
+
+        });
+
+        // 编辑id为10的用户列表信息
+        $.ajax({
+            type: 'put',
+            url: "/users/10",
+            success: (Response) => {
+                console.log(Response);
+            }
+
+        });
+    </script>
+</body>
+</html>

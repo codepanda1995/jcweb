@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if(true){
+            let a = 0;
+            console.log(a);
+        }
+        console.log(a);//错误，不可访问
+
+        var num = 10;
+        if (true) {//该块级区域不可使用外部变量，变成死区
+           
+            console.log(num);
+            let num = 20;
+        }
+
+        
+    </script>
+</body>
+</html>

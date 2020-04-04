@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(){
+
+        }
+        Person.prototype.name = "Jesse";
+        Person.prototype.age = 24;
+        Person.prototype.job = "Student";
+        Person.prototype.sayName = function(){
+            console.log(this.name);//this指向的是Person构造函数
+        }
+        var person1 = new Person();
+        var person2 = new Person();
+
+        console.log(person1.hasOwnProperty("name"));
+
+        person1.name = "luffy";
+        console.log(person1.name);
+        console.log(person1.hasOwnProperty("name"));
+
+        console.log(person2.name);
+        console.log(person2.hasOwnProperty("name"));
+
+        delete person1.name;
+        console.log(person1.name);
+        console.log(person1.hasOwnProperty("name"));
+
+        
+        
+    </script>
+</body>
+</html>

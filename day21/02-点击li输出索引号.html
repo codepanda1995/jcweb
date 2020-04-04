@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="nav">
+        <li>华山派</li>
+        <li>武当派</li>
+        <li>峨眉派</li>
+        <li>少林寺</li>
+        <li>嵩山派</li>
+    </ul>
+    <script>
+        // 1.动态添加属性
+        var list = document.querySelector(".nav").querySelectorAll("li");
+        // for(var i = 0;i < list.length; i++){
+        //     list[i].index = i;//给li添加属性值
+        //     list[i].onclick = function(){
+        //         console.log(this.index);//this指向的是list[i]
+                
+        //     }
+        // };
+
+        // 2 利用闭包的方式得到当前小li的索引号
+        // for(var i = 0; i< list.length; i++){
+        //     //利用循环创建四个立即执行函数
+        //     // 立即执行函数也成为小闭包，因为立即执行函数里面的任何一个函数里面的任何一个函数都可以使用它的i变量
+        //     (function(i){
+        //         list[i].onclick = function(){
+        //             console.log(i);
+                    
+        //         }
+        //     })(i);
+        // }
+
+        //闭包应用：3秒钟之后，打印所有的li元素内容
+        var list = document.querySelector(".nav").querySelectorAll("li");
+        for(var i = 0; i < list.length; i++){
+            (function(i){
+                setTimeout(function(){//定时器属于异步函数
+                    console.log(list[i].innerHTML);
+                },3000);
+            })(i);
+        }
+    </script>
+</body>
+</html>

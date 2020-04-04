@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册页面</title>
+    <!-- 引入网页图标 -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- 导入注册页面样式 -->
+    <link rel="stylesheet" href="css/register.css">
+    <!-- 导入基本样式 -->
+    <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+    <div class="w">
+        <!-- 头部区域 -->
+        <div class="header">
+            <!-- logo -->
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="">
+                </a>
+            </div>
+        </div>
+        <!-- 注册区域 -->
+        <div class="registerarea">
+            <h3>
+                注册新用户
+                <em>
+                    我有账号，去<a href="login.html">登录</a>
+                </em>
+            </h3>
+            <div class="reg_form">
+                <form action="">
+                    <ul>
+                        <li>
+                            <label for="tel">手机号码:</label>
+                            <input type="text" class="inp" id="tel">
+                            <span class="error">
+                                <i class="error_icon"></i>
+                                手机号码格式不正确，清重新输入
+                            </span>
+                        </li>
+                        <li>
+                            <label for="">短信验证码:</label>
+                            <input type="text" class="inp">
+                    
+                        </li>
+                        <li>
+                            <label for="">登录密码:</label>
+                            <input type="password" class="inp">
+                            <span class="success">
+                                <i class="success_icon"></i>
+                                登陆成功
+                            </span>
+                        </li>
+                        <li class="safe">
+                            安全程度
+                            <em class="ruo">弱</em>
+                            <em class="zhong">中</em>
+                            <em class="qiang">强</em>
+                        </li>
+                        <li>
+                            <label for="">确认密码:</label>
+                            <input type="password" class="inp">
+                            <span class="success">
+                                <i class="success_icon"></i>
+                    
+                            </span>
+                        </li>
+                        <li class="agree">
+                            <input type="checkbox">同意用户协议并注册
+                            <a href="#">《用户注册协议须知》</a>
+                        </li>
+                        <li>
+                            <input type="submit" value="确认提交" class="over">
+                        </li>
+                    </ul>
+                </form>
+                
+            </div>
+        </div>
+        <!-- 底部区域 -->
+        <div class="footer">
+            <p class="links">
+                关于我们 | 联系我们 | 联系客服 | 商家入驻 | 营销中心 | 手机数码 | 友情链接 | 销售联盟 | 商城社区 | 商城公益 | English Site | Contact
+            </p>
+            <p class="copyright">
+                地址：天津市宝坻区霍各庄镇网户村
+                邮编：100000 电话：400-618-4000 传真：010-82935100
+                邮箱：jcbuy@jcbuy.com<br>
+            </p>
+        </div>
+    </div>
+    
+</body>
+</html>

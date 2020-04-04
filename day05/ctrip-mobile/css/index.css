@@ -1,0 +1,288 @@
+body {
+  max-width: 540px;
+  min-width: 320px;
+  margin: 0 auto;
+  font: normal 14px/1.5 Tahoma, "Lucida Grande" Verdana, "Microsoft Yahei";
+  color: #000;
+  background: #f2f2f2;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  height: 1000px;
+}
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+div {
+  box-sizing: border-box;
+}
+.search-index {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  height: 44px;
+  width: 100%;
+  min-width: 320px;
+  max-width: 540px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: #f6f6f6;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+.user {
+  width: 44px;
+  height: 44px;
+  font-size: 12px;
+  text-align: center;
+}
+.user::before {
+  content: "";
+  display: block;
+  width: 21px;
+  height: 21px;
+  background: url(../img/sprite2x@v7.15.png) no-repeat 0px -78px;
+  background-size: 21px auto;
+  margin: 5px auto 0;
+}
+.search {
+  position: relative;
+  flex: 1;
+  height: 26px;
+  border: 1px solid #ccc;
+  margin: 7px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  line-height: 28px;
+  color: #666;
+  padding-left: 36px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.search::before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: 0px;
+  left: 4px;
+  width: 14px;
+  height: 14px;
+  background: url(../img/sprite2x@v7.15.png) no-repeat 0px 0px;
+  background-size: 21px auto;
+  margin: 7px;
+}
+.focus {
+  padding-top: 44px;
+}
+.focus img {
+  width: 100%;
+}
+.local-nav {
+  height: 64px;
+  background-color: #fff;
+  margin: 3px 4px;
+  border-radius: 8px;
+  display: flex;
+}
+.local-nav li {
+  flex: 1;
+  float: left;
+}
+.local-nav li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 12px;
+}
+.local-nav li [class^=local-nav] {
+  width: 30px;
+  height: 30px;
+  background-color: pink;
+  background: url(../img/fivemain-sprite2x@v7.15.png) no-repeat -5px -5px;
+  background-size: 40px auto;
+}
+.local-nav li .local-nav-icon1 {
+  background-position: -5px -45px;
+}
+.local-nav li .local-nav-icon2 {
+  background-position: -5px -85px;
+}
+.local-nav li .local-nav-icon3 {
+  background-position: -5px -125px;
+}
+.local-nav li .local-nav-icon4 {
+  background-position: -5px -165px;
+}
+nav {
+  overflow: hidden;
+  margin: 0 4px 3px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+nav .nav-common {
+  display: flex;
+  height: 90px;
+}
+nav .nav-common .nav-item {
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+}
+nav .nav-common .nav-item a {
+  flex: 1;
+  color: #fff;
+  font-size: 15px;
+  line-height: 45px;
+  text-align: center;
+  text-shadow: rgba(0, 0, 0, 0.2);
+}
+nav .nav-common .nav-item a:first-child {
+  border-bottom: 1px solid #fff;
+}
+nav .nav-common:nth-child(1) .nav-item:nth-child(1) a {
+  border: 0;
+  background: url(../img/nav-items-hotel@v7.15.png) no-repeat bottom center;
+  background-size: 94px auto;
+}
+nav .nav-common:nth-child(2) .nav-item:nth-child(1) a {
+  border: 0;
+  background: url(../img/nav-items-flight@v7.15.png) no-repeat bottom center;
+  background-size: 94px auto;
+}
+nav .nav-common:nth-child(3) .nav-item:nth-child(1) a {
+  border: 0;
+  background: url(../img/nav-items-travel@v7.15.png) no-repeat bottom center;
+  background-size: 94px auto;
+}
+nav .nav-item:nth-child(-n+2) {
+  border-right: 1px solid #fff;
+}
+nav .nav-common:nth-child(1) {
+  background: -webkit-linear-gradient(left, #fa5a55, #fa994d);
+}
+nav .nav-common:nth-child(2) {
+  margin: 3px 0;
+  background: -webkit-linear-gradient(left, #4b90ed, #53b3ed);
+}
+nav .nav-common:nth-child(3) {
+  margin: 3px 0;
+  background: -webkit-linear-gradient(left, #34c2a9, #6cd559);
+}
+.subnav-entry {
+  display: flex;
+  border-radius: 8px;
+  background-color: #fff;
+  margin: 0 4px;
+  flex-wrap: wrap;
+}
+.subnav-entry li {
+  flex: 20%;
+}
+.subnav-entry li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px auto;
+  font-size: 12px;
+  color: #222;
+}
+.subnav-entry li .subnav-icon {
+  width: 28px;
+  height: 28px;
+  background: url(../img/subnav2x@v7.152.png) no-repeat 0px 0px;
+  background-size: 28px auto;
+  margin-top: 4px;
+}
+.subnav-entry li:nth-child(2) a .subnav-icon {
+  background-position: 0px -28px;
+}
+.subnav-entry li:nth-child(3) a .subnav-icon {
+  background-position: 0px -56px;
+}
+.subnav-entry li:nth-child(4) a .subnav-icon {
+  background-position: 0px -84px;
+}
+.subnav-entry li:nth-child(5) a .subnav-icon {
+  background-position: 0px -112px;
+}
+.subnav-entry li:nth-child(6) a .subnav-icon {
+  background-position: 0px -140px;
+}
+.subnav-entry li:nth-child(7) a .subnav-icon {
+  background-position: 0px -168px;
+}
+.subnav-entry li:nth-child(8) a .subnav-icon {
+  background-position: 0px -196px;
+}
+.subnav-entry li:nth-child(9) a .subnav-icon {
+  background-position: 0px -224px;
+}
+.subnav-entry li:nth-child(10) a .subnav-icon {
+  background-position: 0px -252px;
+}
+.sales-box {
+  border-top: 1px solid #bbb;
+  background-color: #fff;
+  margin: 4px;
+}
+.sales-hd {
+  position: relative;
+  height: 44px;
+  border-bottom: 1px solid #ccc;
+}
+.sales-hd h2 {
+  position: relative;
+  text-indent: -999px;
+  overflow: hidden;
+}
+.sales-hd h2::after {
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  content: "";
+  width: 79px;
+  height: 20px;
+  background-color: pink;
+  background: url(../img/home_text.png) no-repeat 0 -18px;
+  background-size: 75px auto;
+}
+.sales-hd .more {
+  position: absolute;
+  right: 25px;
+  top: 6px;
+  background: -webkit-linear-gradient(left, #ff506c, #ff6bc6);
+  border-radius: 8px;
+  padding: 3px 20px 3px 10px;
+  color: #fff;
+  font-size: 12px;
+}
+.sales-hd .more::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 9px;
+  width: 7px;
+  height: 7px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(-45deg);
+}
+.row {
+  display: flex;
+}
+.row a {
+  flex: 1;
+  border-bottom: 1px solid #eee;
+}
+.row a img {
+  width: 100%;
+}
+.row a:nth-child(1) {
+  border-right: 1px solid #eee;
+}

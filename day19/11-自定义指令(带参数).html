@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <script src='./js/vue.js'></script>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div id='app'>
+        <input type="text" v-color="msg">
+    </div>
+    <script>
+        Vue.directive("color",{
+            bind:function(el,binding){
+                // el指的是指令所绑定的元素，而binding指的是形参
+                // console.log(binding.value.color);
+                el.style.backgroundColor = binding.value.color;
+            }
+        });
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:{
+                    color:"orange"
+                }
+            },
+            methods: {
+            
+            }
+        });
+    </script>
+</body>
+</html>

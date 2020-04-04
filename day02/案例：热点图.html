@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>热点图</title>
+    <style>
+        body{
+            background-color: #333;
+        }
+        .map{
+            position: relative;
+            width: 747px;
+            height: 616px;
+            background: url(img/map.png) no-repeat;
+            margin:0 auto;
+        }
+        .city{
+            position: absolute;
+            top: 228px;
+            right:200px;
+            
+            
+        }
+
+        .dotted{
+           
+            background-color: #09f;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .city div[class^="bowen"]{
+            /* 保证波纹在父盒子水平垂直居中，放大后也在中心 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+         
+            transform: translate(-50%,-50%);
+            width: 8px;
+            height: 8px;
+            box-shadow: 0 0 12px #009dfd;
+            /* 阴影 */
+            border-radius: 50%;
+            animation: bowen 1.2s linear infinite;
+
+        }
+        .city div.bowen2{
+            animation-delay: 0.4s;
+        }
+        .city div.bowen3{
+            animation-delay: 0.8s;
+        }
+        /* 动画效果 */
+        @keyframes bowen{
+            0%{
+
+            }
+            70%{
+                /* transform: scale(5); 不使用的原因是 会使得阴影变大 */
+                width: 40px;
+                height: 40px;      
+                opacity: 1;/*透明度*/      
+            }
+            100%{
+                width:70px;
+                height: 70px;
+                opacity: 0;
+            }
+        }
+
+        /* 台北坐标 */
+        .tb{
+            top: 500px;
+            right: 80px;
+        }
+        /* 广州坐标 */
+        .gz{
+            top: 530px;
+            right: 190px;
+        }
+    </style>
+</head>
+<body>
+    <div class="map">
+        <div class="city">
+            <div class="dotted"></div>
+            <div class="bowen1"></div>
+            <div class="bowen2"></div>
+            <div class="bowen3"></div>
+        </div>
+        <div class="city tb">
+            <div class="dotted"></div>
+            <div class="bowen1"></div>
+            <div class="bowen2"></div>
+            <div class="bowen3"></div>
+        </div>
+        <div class="city gz">
+            <div class="dotted"></div>
+            <div class="bowen1"></div>
+            <div class="bowen2"></div>
+            <div class="bowen3"></div>
+        </div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data = {
+            id: 1,
+            name: "panda",
+            arr: ["red", "pink"],
+            obj: {
+                gender: "female"
+            }
+        }
+
+        var newObj = {};//定义一个空对象用于装新数据
+        // 封装函数
+        function deepCopy(newobj,oldobj){
+            for(var k in oldobj){//遍历data数据
+                // 获取data数据属性值
+                var item = oldobj[k];
+                // 判断这个属性值是不是数组
+                if(item instanceof Array){
+                    newobj[k] = [];
+                    deepCopy(newobj[k],item);
+                }else if(item instanceof Object){
+                    // 判断这个属性值是不是对象
+                    newobj[k] = {};
+                    deepCopy(newobj[k],item);
+                }else{
+                    // 判断这个属性值是普通数据
+                    newobj[k] = item;
+                }
+            }
+        }
+        deepCopy(newObj,data);
+        console.log(newObj)
+
+    </script>
+</body>
+</html>

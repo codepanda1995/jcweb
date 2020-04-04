@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数据
+        var data = [{
+            id: 1,
+            name: "家电",
+            goods: [{
+                id: 11,
+                name: "电视",
+                goods:[{
+                    id:111,
+                    name: "创维"
+                },{
+                    id:112,
+                    name:"TCL"
+                }]
+            },{
+                id: 12,
+                name: "空调"
+            }],
+        },{
+            id: 2,
+            name:"手机",
+            goods:[{
+                id:21,
+                name:"华为"
+            },{
+                id:22,
+                name:"魅族"
+            }]
+        }];
+
+        
+        // 输入id值，便可获取返回的数据对象
+        function getGoods(json,id){
+            var o = {};//用于存储获取到的数据对象
+            //利用forEach去遍历里面的每一个对象
+            json.forEach(function(item){//item是json对象中的元素
+                //先做判断当前用户输入的id值是否等于对象中获取的id值
+                if(item.id == id){
+                    // 如果等于 便打印该值
+                    //  console.log(item);
+                    // 将该对象保存到list中
+                    o = item;
+                    return item;
+                }else if(item.goods && item.goods.length > 0){//先要判断item.goods是否存在
+                    // 不等于的话，便继续遍历第二层对象
+                    o = getGoods(item.goods, id);
+                }
+                
+            });
+            // console.log(o);
+            return o;
+        };
+        // 调用函数
+        // getGoods(data,11);
+        
+        console.log(getGoods(data, 1));
+        console.log(getGoods(data, 11));
+    </script>
+</body>
+</html>

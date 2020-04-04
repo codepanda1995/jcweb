@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    <script>
+
+
+        
+        function queryData(url){
+            // 实例化Promise对象
+            var p = new Promise((resolve,reject)=>{
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState != 4) return;
+                    if(xhr.readyState == 4 && xhr.status == 200){
+                        // 处理正常情况
+                        resolve(xhr.responseText);
+                    }else{
+                        // 处理异常情况
+                        reject("服务器异常");
+                    }
+                };
+                xhr.open("get",url);
+                xhr.send(null);
+            });
+            return p;
+        };
+        queryData("http://localhost:3000/data")
+        .then((data)=>{
+            console.log(data);
+        },(info)=>{
+            console.log(info);
+        });
+
+        queryData("http://localhost:3000/data")
+        .then((data)=>{
+            console.log(data);
+            return queryData("http://localhost:3000/data");
+        })
+        .then((data) => {
+            console.log(data);
+            return queryData("http://localhost:3000/data");
+        })
+        .then((data) => {
+            console.log(data);
+        });
+
+        queryData("http://localhost:3000/data").then(function(data){
+            return queryData("http://localhost:/data1");
+        }).then((data)=>{
+            return new Promise(function(resolve,reject){
+                setTimeout(()=>{
+                    resolve(123);
+                },1000);
+            })
+        }).then((data)=>{
+            return "hello";
+        }).then((data)=>{
+            console.log(data);
+            
+        });
+
+        queryData().then((data) => {
+                console.log(data);
+            }).catch((data) => {
+                console.log(data);
+            }).finally(() => {
+                console.log("finished");
+
+            })
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <script src='./js/vue.js'></script>
+</head>
+<body>
+    <div id='app'>
+        <input type="text" v-model="msg">
+        <div >{{msg | lower}}</div>
+        <div>{{msg | lower | upper}}</div>
+        <div :aaa="msg | upper">测试数据</div>
+    </div>
+    <script>
+        // 使用过滤器，将输入字符串的首字母进行小写
+        Vue.filter("lower",function(val){
+            return val.charAt(0).toLowerCase() +val.slice();
+        });
+        Vue.filter("upper",function(val){
+            return val.charAt(0).toUpperCase() + val.slice();
+        })
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:""
+            },
+            filters:{
+
+            },
+            methods: {
+
+            }
+        });
+    </script>
+</body>
+</html>

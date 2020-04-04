@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 递归函数：函数自己调用自己
+        var num = 1;
+        function fn(){
+            console.log("我要打印6句话");
+            // 添加递归终止条件
+            if(num == 6){
+                return;//
+            }
+            num ++;
+            fn();
+            
+        };
+        fn();
+
+        // 问题：求取1*2*3*...*n阶乘
+        function fun(n){
+            // 递归终止条件
+            if(n == 1){
+                return 1;
+            };
+            return n * fun(n-1);
+        }
+        console.log(fun(10));
+
+        // 问题斐波那契数列
+        function fb(n){
+            // 终止条件
+            if(n == 1 || n == 2){
+                return 1;
+            }
+            return fb(n - 1) + fb(n - 2);
+        };
+
+        console.log(fb(10));
+        
+        
+    </script>
+</body>
+</html>

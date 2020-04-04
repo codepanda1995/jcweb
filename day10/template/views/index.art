@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- {{if age > 20}}
+        明月老妹大于20岁
+    {{else if age < 10}}
+        明月老妹小于10岁
+    {{else}}
+        明月老妹年龄未知
+    {{/if}} -->
+
+    {{each users}}
+    <li>
+        {{$value.name}}
+        {{$value.age}}
+       
+    </li>
+    {{/each}}
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function DoubleNodesList(){
+            // 先定义一个节点构造函数
+            function Node(data){
+                // 先指定头部节点为空
+                this.next = null
+                this.prev = null
+                this.data = data
+            }
+            // 定义第一个和最后一个节点
+            this.head = null
+            this.last = null
+            this.length = 0
+
+
+            // 1 追加节点
+            DoubleNodesList.prototype.append = function(data){
+                // 先要创建一个对象实例
+                var newNode = new Node(data)
+                // 先要判断链表是否为空
+                if(this.length == 0){
+                    this.head = newNode
+                    this.last = newNode
+                }else{
+                    newNode.prev = this.last
+                    this.last.next = newNode
+                    this.last = newNode
+                }
+
+                // 最后长度进行加1
+                this.length += 1
+            }
+        
+            // 2 将链表数据转换成string toString
+            DoubleNodesList.prototype.toString = function(){
+                return this.frontToString()
+            }
+
+            // 3 从头到尾进行转换成String frontToString
+            DoubleNodesList.prototype.frontToString = function(){
+                // 先定一个变量对字符串进行接收
+                var nodeString = ""
+                var current = this.head
+                // 当当前节点值不为空时
+                while(current){
+                    nodeString += current.data + " "
+                    current = current.next
+                } 
+                // 当节点为空时
+                return nodeString
+            }
+        
+            // 4 从尾部往头部进行转换
+            DoubleNodesList.prototype.backToString = function(){
+                // 
+                var nodeString = ""
+                var current = this.last
+                while(current){
+                    nodeString += current.data + " "
+                    current = current.prev
+                }
+                return nodeString
+
+            }
+        
+            // 5 向链表插入节点
+            DoubleNodesList.prototype.insert = function(position,data){
+                // 先要创建一个节点对象
+                var newNode = new Node(data)
+                // 先要对要插入的位置进行判断
+                if(position < 0 || position > this.length){
+                    return false
+                }
+
+                // 接下来就要判断插入的位置在哪儿
+                if(this.length == 0){//如果链表为空，那么直接追加就行
+                    this.head = newNode
+                    this.last = newNode
+                   
+                }else{
+                    // 如果链表不为空
+                    // 判断插入的位置
+                    if(position == 0){//插入头部
+                        this.head.prev = newNode
+                        newNode.next = this.head
+                        this.head = newNode
+                        
+                    }else if(position == this.length){
+                        newNode.prev = last
+                        this.last.next = newNode
+                        this.last = newNode
+                       
+                    }else{
+                        var current = this.head
+                        var count = 0
+                        while(count++ < position){
+                            current = current.next
+                        }
+                        newNode.next = current
+                        newNode.prev = current.next
+                        current.prev.next = newNode
+                        current.prev = newNode
+                       
+                    }
+                     // 最后长度加一
+                    this.length += 1
+                    return true
+                }
+
+               
+            }
+        
+            // 6 获取链表指定位置的元素
+            DoubleNodesList.prototype.get = function(position){
+                // 判断position是否越界
+                if(position < 0 || position >= this.length){
+                    return null
+                }
+                // 进行遍历获取指定位置的值
+                if(this.length == 1){
+                    return this.head.data
+                }else if(position == this.length -1){
+                    return this.last.data
+                }else{
+                    // 
+                    var current = this.head
+                    var count = 0
+                    while(count++ < position){
+                        current = current.next
+                    }
+                    
+                    return current.data
+                }
+
+            }
+            
+            // 7 获取指定元素的索引
+            DoubleNodesList.prototype.indexOf = function(data){
+                var current = this.head
+                var count = 0
+                // 先判断链表是否为空
+                while(current){
+                    
+                    if (current.data == data) {
+                        return count
+                    } 
+                    current = current.next
+                    count += 1
+                    
+                }
+                return -1
+
+            }
+
+            // 8 update 修改指定位置的元素
+            DoubleNodesList.prototype.update = function(position,data){
+                var current = this.head
+                var count = 0
+                // 先要判断是否存在范围之内
+                if(position < 0 || position >= this.length){
+                    return false
+                }
+
+                if(this.length == 0){
+                    this.head.data = data
+                }else if(position == this.length-1){
+                    this.last.data = data
+                }else{
+                    while(count++ < position){
+                        current = current.next
+                    }
+                    current.data = data
+                }
+                return true
+            }
+
+            // 9 removeAt 移除指定位置的元素
+            DoubleNodesList.prototype.removeAt = function(position){
+                // 先判断position是否在指定范围内
+                if(position < 0 || position >= this.length){
+                    return false
+                }
+                var current = this.head
+                if(this.length == 1){
+                    this.head = null
+                    this.last = null
+                }else{
+                    
+                    // 遍历链表找到索引
+                    if (position == 0) {
+                        this.head.next.prev = null
+                        this.head = this.head.next
+                    } else if (position == this.length - 1) {
+                        current = this.last
+                        current.prev.next = null
+                        this.last = current.prev
+
+
+                    } else {
+                        var count = 0 
+                        while (count++ < position) {
+
+                            current = current.next
+                        }
+                     
+                        current.prev.next = current.next
+                        current.next.prev = current.prev
+
+                    }
+                }
+                
+                
+                this.length -= 1
+                // 返回当前删除的值
+                return current.data
+            }
+        
+            // 10 remove 移除指定项
+            DoubleNodesList.prototype.remove = function(data){
+                // 先获取该元素在链表中的索引
+                var index = this.indexOf(data)
+                // 根据索引删除元素
+                return this.removeAt(index)
+            }
+        
+            // 11 isEmpty 判断链表是否为空
+            DoubleNodesList.prototype.isEmpty = function(){
+                return this.length == 0
+            }
+
+            // 12 size 返回链表的长度
+            DoubleNodesList.prototype.size = function(){
+                return this.length
+            }
+        }
+
+        // 使用时，进行创建对象
+        var nodeList = new DoubleNodesList()
+
+        nodeList.append("赵舜")
+        nodeList.append("文波")
+        nodeList.append("鲍烈")
+        nodeList.append("陈凤")
+   
+        console.log(nodeList.frontToString());
+        console.log(nodeList.toString());
+        console.log(nodeList.backToString());
+        
+        nodeList.insert(1,"彭珍")
+        console.log(nodeList.toString());
+        console.log(nodeList.get(0));
+        console.log(nodeList.indexOf("博文"));
+        console.log(nodeList.update(4,"博文"));
+        console.log(nodeList.toString());
+        console.log(nodeList.removeAt(4));
+        console.log(nodeList.remove("鲍烈"));
+        
+        
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

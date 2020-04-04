@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 定义函数
+        function ajax(options) {
+            // 创建ajax对象
+            var xhr = new XMLHttpRequest();
+            // 拼接请求参数的变量
+            var params = "";
+            // 循环用户传递进来的对象格式参数
+            for (var attr in options.data) {
+                // 将参数转换为字符串格式
+                params += attr + "=" + options.data[attr] + "&";
+            }
+            // 将参数的最后一个&进行截取,将参数重新复制给params
+            params = params.substr(0, params.length - 1);
+
+            // 判断请求方式
+            if (options.type == "get") {
+                options.url = options.url + "?" + params;
+            }
+
+            // 配置ajax对象
+            xhr.open(options.type, options.url);
+
+            // 如果请求方式是post
+            if (options.type == "post") {
+                //用户希望的向服务器传递的请求参数类型
+                var ContentType = options.header["Content-Type"];
+                // 设置请求参数格式的类型
+                xhr.setRequestHeader("Content-Type", ContentType);
+                //判断用户希望的请求参数格式的类型
+                //如果类型为json
+                if (ContentType == "application/json") {
+                    // 向服务端传递json数据格式
+                    xhr.send(JSON.stringify(options.data));
+                } else {
+                    //向服务器端传递普通类型数据
+                    xhr.send(params);
+                }
+
+            } else {
+                // 发送请求
+                xhr.send();
+            }
+
+            // 监听xhr对象在的onload事件
+            xhr.onload = function () {
+                // 判断状态码
+                if(xhr.status == 200){
+                    // 之所以传递xhr,是因为信息更丰富
+                    options.success(xhr.responseText,xhr);
+                }else{
+                    options.error(xhr.responseText,xhr)
+                }
+            }
+
+        }
+        ajax({
+            // 请求方式
+            type: "get",
+            // 请求地址
+            url: "http://localhost:3000/first",
+            data: {
+                name: "xiao",
+                age: 20
+            },
+            header: {
+                "Content-Type": "Content-Type/json"
+            },
+            success: function (data) {
+                console.log("这是success函数" + data);
+            },
+            error:function(data,xhr){
+                console.log("这是error函数"+data);
+                console.log(xhr);
+            }
+        })
+    </script>
+</body>
+
+</html>
