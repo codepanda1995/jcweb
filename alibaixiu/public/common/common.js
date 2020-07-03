@@ -21,7 +21,7 @@ $.ajax({
     type:"get",
     url:"/users/" + userId,
     success:(response)=>{
-        console.log(response);
+        console.log("respomse",response);
         //
         $(".avatar").attr("src",response.avatar);
         $(".profile .name").html(response.nickName);

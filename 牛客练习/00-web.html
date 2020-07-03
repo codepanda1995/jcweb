@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var url ='http://witmax.cn/index.php?key0=0&key1=1&key2=2'; 
+        function parseQueryString(url){
+            var arr = [];
+            var params = {};
+            arr = url.split("?")
+            arr = arr[1].split("&")
+            // 对数组进行遍历
+            for(var i = 0; i < arr.length; i++){
+                var a= arr[i].split("=")
+                params[a[0]] = a[1]
+
+            }
+            return params
+        }
+        // console.log(parseQueryString(url));
+
+        // 统计字符串中出现次数最多的字符
+        // var str = "abcdefgaddda";
+        // function Num(str){
+        //     // 定义空数组
+        //     var arr = [];
+        //     arr = str.split("")
+        //     // 先从头到尾进行遍历数组元素
+        //     for(var i =0 ; i < arr.length;i++){
+
+        //     }
+        //     return arr
+        // }
+        // console.log(Num(str));
+        /*
+            关于link与@import的区别:
+            区别1：link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。
+            区别2：link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。
+            区别3：link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。
+            区别4：link支持使用Javascript控制DOM去改变样式；而@import不支持。
+        */ 
+
+          let str = 'abcdefgaddda';
+            function count(str) {
+                let obj = {},
+                    arr = str.split('');
+                //遍历数组
+                arr.forEach(function (val, index) {
+                    //将数组的元素存入对象，初始值为1，如果后面遍历的元素之前已存在就+1
+                    if (obj[val]) {
+                        obj[val] += 1;
+                    } else {
+                        obj[val] = 1
+                    }
+                })
+                //遍历对象中的属性(字符)，值（出现的次数）
+                let num = 0,
+                    res;
+                for (let i in obj) {
+                    if (num < obj[i]) {
+                        //将最多的次数赋给num
+                        num = obj[i];
+                        //最多次数的属性（字符串）赋给res
+                        res = i;
+                    }
+                }
+                console.log('最多的字符串是' + res + ', 出现次数是' + num);
+            }
+            count(str);
+
+
+            var arr = [1, 3, 4, 6, 8]
+                var long = arr.length
+                var sum = 11
+                function findNum(long, arr, sum) {
+                    for (var i = 0; i < long; i++) {
+                        for (var j = i + 1; j < long; j++) {
+                            if (arr[i] === sum - arr[j]) {
+                                return arr[i] + " " + arr[j]
+                            }
+                        }
+                    }
+                    return "notfound"
+                }
+
+                console.log(findNum(long, arr, sum))
+        
+
+        function paTi(n) {
+            var a = 1
+            if (n === 1) {
+                a = 1
+                return a
+            
+            } else if(n === 2){
+                a = 2
+                return a
+            }else {
+                a = paTi(n - 2) + paTi(n - 1)
+                return a
+            }
+        }
+
+            console.log(paTi(4))
+    </script>
+</body>
+</html>
+
+王老师，以下是我今天的情况汇报
+    (1)阅读js编程书籍
+    (2)学习计算机网络课程、算法和数据结构，进行编程练习。
+    (3)查阅文献资料

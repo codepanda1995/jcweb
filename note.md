@@ -2991,3 +2991,7 @@ Getter
 Getter用于对Store中的数据进行加工处理后形成新的数据
     Getter可以对Store中已有的数据加工处理后形成新的数据，类似于Vue的计算属性
     Store中数据发生变化，Getter的数据也会发生变化
+
+
+安装库文件
+ant-design-vue

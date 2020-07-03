@@ -1,5 +1,8 @@
 // 从地址栏中获取文章id
 var postId = getUrlParams("id");
+// 评论是否已经开启
+var review;
+
 // 向服务器端发送请求，根据文章id获取文章信息
 $.ajax({
     type:"get",
@@ -30,7 +33,11 @@ $.ajax({
     type: 'get',
     url: '/settings',
     success: function (response) {
+        console.log(response);
+        
         review = response.review
+        console.log(review);
+        
         // 判断管理员是否开启的评论功能
         if (response.comment) {
             // 管理员开启了评论功能 渲染评论模板
@@ -45,6 +52,8 @@ $.ajax({
 $('#comment').on('submit', 'form', function () {
     // 获取用户输入的评论内容
     var content = $(this).find('textarea').val();
+    console.log(content);
+    
     // 代表评论的状态
     var state;
 
@@ -58,7 +67,7 @@ $('#comment').on('submit', 'form', function () {
 
     // 向服务器端发送请求 执行添加评论操作
     $.ajax({
-        type: 'get',
+        type: 'post',
         url: '/comments',
         data: {
             content: content,

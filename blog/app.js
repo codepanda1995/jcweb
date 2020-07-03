@@ -19,15 +19,15 @@ const config = require("config");
 // 获取
 console.log(config.get("title"));
 
-// 获取系统变量，返回值是对象 判断系统是开发环境还是生产环境
-if (process.env.NODE_ENV == "development"){
-    console.log("运行环境：当前是开发环境...");
-    // 在开发环境中，将客户端发送到服务端的请求信息打印到控制台中
-    app.use(morgan("dev"));
-} else{
-    console.log("运行环境：当前是生产环境...");
+// // 获取系统变量，返回值是对象 判断系统是开发环境还是生产环境
+// if (process.env.NODE_ENV == "development"){
+//     console.log("运行环境：当前是开发环境...");
+//     // 在开发环境中，将客户端发送到服务端的请求信息打印到控制台中
+//     app.use(morgan("dev"));
+// } else{
+//     console.log("运行环境：当前是生产环境...");
    
-}
+// }
 
 
 
@@ -90,5 +90,5 @@ app.use((err,req,res,next)=>{
 })
 
 //监听端口
-app.listen(3000);
+app.listen(3002);
 console.log("服务器正在运行中...");
